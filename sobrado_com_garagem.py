@@ -249,6 +249,9 @@ SOC_Y_FUNDO = BANHO_Y_FIM + PAREDE_ESP + 1.610  # Y=14.12
 # Parede esquerda social (mesma posição que BanhoEsq da suite)
 box(BANHO_X_EXT, BANHO_Y_FIM+PAREDE_ESP, Z2,  PAREDE_ESP, 1.610+PAREDE_ESP, PE_DIREITO, "Social_Parede_Esq")
 
+# Parede direita banheiros: X=4,76→4,90, Y=9,67→14,26 (divisa com corredor lateral)
+box(CASA_LARG-PAREDE_ESP, Y0+4.670, Z2, PAREDE_ESP, SOC_Y_FUNDO+PAREDE_ESP-(Y0+4.670), PE_DIREITO, "Andar_2_Parede_Dir_Banhos")
+
 # Parede fundo social: X=2,38→4,90, Y=14,12→14,26
 box(BANHO_X_EXT, SOC_Y_FUNDO, Z2,  CASA_LARG-BANHO_X_EXT, PAREDE_ESP, PE_DIREITO, "Social_Parede_Fundo")
 
