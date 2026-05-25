@@ -208,8 +208,8 @@ box(0, Y_FUNDO-PAREDE_ESP, Z2,  CASA_LARG, PAREDE_ESP, PE_DIREITO,  "Andar_2_Par
 # Parede esquerda suite — X=0→0,14, Y=5,14→8,89 (comprimento=3,75m)
 box(0, Y0+PAREDE_ESP, Z2,  PAREDE_ESP, 3.750, PE_DIREITO, "Andar_2_Parede_Esq_Suite")
 
-# Parede direita A: X=4,76→4,90, Y=5,14→10,01, length=4,87m
-box(4.760, 5.140, Z2,  PAREDE_ESP, 4.870, PE_DIREITO, "Andar_2_Parede_Dir_A")
+# Parede direita A: X=4,76→4,90, Y=5,14→9,67 (termina na face externa de Y987)
+box(4.760, 5.140, Z2,  PAREDE_ESP, 4.530, PE_DIREITO, "Andar_2_Parede_Dir_A")
 
 # Parede direita B: X=4,76→4,90, Y=12,51→22,09
 box(CASA_LARG-PAREDE_ESP, BANHO_Y_FIM+PAREDE_ESP, Z2, PAREDE_ESP, SOB_PROF-(4.670+PAREDE_ESP)-(2.500+PAREDE_ESP*2)-PAREDE_ESP, PE_DIREITO, "Andar_2_Parede_Dir_B")
@@ -219,8 +219,8 @@ box(CASA_LARG-PAREDE_ESP, BANHO_Y_FIM+PAREDE_ESP, Z2, PAREDE_ESP, SOB_PROF-(4.67
 # Y875: X=0,14→1,28, Y=8,89→9,03  (começa em Y=5140+3750+14mm, length=1140mm)
 box(PAREDE_ESP, Y0+3.750+PAREDE_ESP, Z2,  1.140, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y875")
 
-# X114: X=1,14→1,28, Y=9,03→11,73
-box(1.140, 9.030, Z2,  PAREDE_ESP, 2.700, PE_DIREITO, "Suite_Parede_X114")
+# X114: X=1,28→1,42, Y=9,03→11,73 (começa em X=1,28 onde Y875 termina)
+box(1.280, 9.030, Z2,  PAREDE_ESP, 2.700, PE_DIREITO, "Suite_Parede_X114")
 
 # Parede esquerda restante — X=0→0,14, Y=8,89→22,09 (após Esq_Suite, até back)
 box(0, Y0+3.750+PAREDE_ESP, Z2,  PAREDE_ESP, SOB_PROF-3.750-PAREDE_ESP*2, PE_DIREITO, "Andar_2_Parede_Esq")
@@ -232,10 +232,10 @@ box(1.280, 11.590, Z2,  1.000, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y1161")
 box(BANHO_X_EXT+PAREDE_ESP, Y0+4.670, Z2,  CASA_LARG-BANHO_X_EXT-PAREDE_ESP*2, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y987")
 
 # BanhoEsq: X=2,28→2,42
-# Bot: y=10,15  Top: y=11,37  Verga: y=10,47
-box(2.280, 10.150, Z2,  PAREDE_ESP, PORTA_Y-(Y0+4.670+PAREDE_ESP), PE_DIREITO, "Banho_Parede_Esq_Bot")
-box(2.280, 11.370, Z2,  PAREDE_ESP, (Y0+6.410)-(PORTA_Y+PORTA_LARG), PE_DIREITO, "Banho_Parede_Esq_Top")
-box(2.280, 10.470, Z2+PORTA_ALT,  PAREDE_ESP, PORTA_LARG, PE_DIREITO-PORTA_ALT, "Banho_Parede_Esq_Verga")
+# Bot: Y=9,81→10,47  Top: Y=11,27→11,59  Verga: Y=10,47→11,27
+box(2.280, 9.810,  Z2,              PAREDE_ESP, 0.660,              PE_DIREITO,       "Banho_Parede_Esq_Bot")
+box(2.280, 11.270, Z2,              PAREDE_ESP, 0.320,              PE_DIREITO,       "Banho_Parede_Esq_Top")
+box(2.280, 10.470, Z2+PORTA_ALT,   PAREDE_ESP, PORTA_LARG,         PE_DIREITO-PORTA_ALT, "Banho_Parede_Esq_Verga")
 
 # BanhoFundo: X=2,38→4,90, Y=12,37→12,51
 box(BANHO_X_EXT, BANHO_Y_FIM, Z2,  CASA_LARG-BANHO_X_EXT, PAREDE_ESP, PE_DIREITO, "Banho_Parede_Fundo")
