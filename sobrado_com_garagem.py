@@ -227,7 +227,7 @@ box(PAREDE_EXT_ESP+1.140-PAREDE_ESP, Y0+PAREDE_EXT_ESP+3.750+PAREDE_ESP, Z2,  PA
 box(1.140, Y0+PAREDE_EXT_ESP+3.750+2.660, Z2,  BANHO_X_EXT-1.140, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y1161")
 
 # Y987: X=2,38→4,71, Y=10,06→10,20  (corre em X, termina na face interna da Dir_A)
-box(BANHO_X_EXT, Y0+PAREDE_EXT_ESP+4.870, Z2,  CASA_LARG-PAREDE_EXT_ESP-BANHO_X_EXT, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y987")
+box(BANHO_X_EXT, Y0+PAREDE_EXT_ESP+4.870, Z2,  2380, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y987")
 
 # BanhoEsq: X=2,38→2,52, Y=10,20→11,74  (corre em Y, começa após Y987, termina no topo de Y1161)
 # Vão interno = Y987_y1 → Y1161_y1 = 10,20 → 11,74 = 1,54m; porta centralizada
