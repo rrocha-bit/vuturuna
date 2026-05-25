@@ -211,8 +211,8 @@ box(0, Y0+PAREDE_ESP, Z2,  PAREDE_ESP, 3.750, PE_DIREITO, "Andar_2_Parede_Esq_Su
 # Parede direita A: X=4,76→4,90, Y=5,14→9,67 (termina na face externa de Y987)
 box(4.760, 5.140, Z2,  PAREDE_ESP, 4.530, PE_DIREITO, "Andar_2_Parede_Dir_A")
 
-# Parede direita B: X=4,76→4,90, Y=12,51→22,09
-box(CASA_LARG-PAREDE_ESP, BANHO_Y_FIM+PAREDE_ESP, Z2, PAREDE_ESP, SOB_PROF-(4.670+PAREDE_ESP)-(2.500+PAREDE_ESP*2)-PAREDE_ESP, PE_DIREITO, "Andar_2_Parede_Dir_B")
+# Parede direita B: X=4,76→4,90, Y=14,26→22,09 (após fundo do banheiro social)
+box(CASA_LARG-PAREDE_ESP, BANHO_Y_FIM+PAREDE_ESP+1.610+PAREDE_ESP, Z2, PAREDE_ESP, SOB_PROF-(BANHO_Y_FIM+PAREDE_ESP+1.610+PAREDE_ESP-Y0)-PAREDE_ESP, PE_DIREITO, "Andar_2_Parede_Dir_B")
 
 # ── Paredes da suíte ─────────────────────────────────────────────────────────
 
@@ -228,17 +228,31 @@ box(0, Y0+3.750+PAREDE_ESP, Z2,  PAREDE_ESP, SOB_PROF-3.750-PAREDE_ESP*2, PE_DIR
 # Y1161: X=1,28→2,28, Y=11,59→11,73, length=1m
 box(1.280, 11.590, Z2,  1.000, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y1161")
 
-# Y987: reduzida 0,14 em cada extremidade → X=2,52→4,76
-box(BANHO_X_EXT+PAREDE_ESP, Y0+4.670, Z2,  CASA_LARG-BANHO_X_EXT-PAREDE_ESP*2, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y987")
+# Y987: entrada banheiro suite — Y=9,73 para dar 2,50m interno (9,73+0,14+2,50=12,37)
+box(BANHO_X_EXT+PAREDE_ESP, Y0+4.730, Z2,  CASA_LARG-BANHO_X_EXT-PAREDE_ESP*2, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y987")
 
-# BanhoEsq: X=2,28→2,42
-# Bot: Y=9,81→10,47  Top: Y=11,27→11,59  Verga: Y=10,47→11,27
-box(2.280, 9.810,  Z2,              PAREDE_ESP, 0.660,              PE_DIREITO,       "Banho_Parede_Esq_Bot")
-box(2.280, 11.270, Z2,              PAREDE_ESP, 0.320,              PE_DIREITO,       "Banho_Parede_Esq_Top")
+# BanhoEsq: X=2,28→2,42, ajustado para nova posição Y987
+box(2.280, 9.870,  Z2,              PAREDE_ESP, 0.600,              PE_DIREITO,           "Banho_Parede_Esq_Bot")
+box(2.280, 11.270, Z2,              PAREDE_ESP, 0.320,              PE_DIREITO,           "Banho_Parede_Esq_Top")
 box(2.280, 10.470, Z2+PORTA_ALT,   PAREDE_ESP, PORTA_LARG,         PE_DIREITO-PORTA_ALT, "Banho_Parede_Esq_Verga")
 
-# BanhoFundo: X=2,38→4,90, Y=12,37→12,51
+# BanhoFundo (divisa suite/social): X=2,38→4,90, Y=12,37→12,51
 box(BANHO_X_EXT, BANHO_Y_FIM, Z2,  CASA_LARG-BANHO_X_EXT, PAREDE_ESP, PE_DIREITO, "Banho_Parede_Fundo")
+
+# ── BANHEIRO SOCIAL ───────────────────────────────────────────────────────────
+# Área interna: 2,24m (X) x 1,61m (Y)
+# Divisa com suite: parede BanhoFundo (Y=12,37→12,51) já existe
+# Mesmo X que banheiro suite: X interno = 2,52→4,76
+# Y interno: 12,51→14,12  →  parede fundo em Y=14,12→14,26
+SOC_Y_FUNDO = BANHO_Y_FIM + PAREDE_ESP + 1.610  # Y=14.12
+
+# Parede esquerda social (mesma posição que BanhoEsq da suite)
+box(BANHO_X_EXT, BANHO_Y_FIM+PAREDE_ESP, Z2,  PAREDE_ESP, 1.610+PAREDE_ESP, PE_DIREITO, "Social_Parede_Esq")
+
+# Parede fundo social: X=2,38→4,90, Y=14,12→14,26
+box(BANHO_X_EXT, SOC_Y_FUNDO, Z2,  CASA_LARG-BANHO_X_EXT, PAREDE_ESP, PE_DIREITO, "Social_Parede_Fundo")
+
+# Parede direita social = Andar_2_Parede_Dir_B (já cobre este trecho)
 
 # Laje topo 2º andar (cobertura)
 box(0, Y0, Z2+PE_DIREITO, CASA_LARG, SOB_PROF, LAJE_ESP, "Laje_Andar2_Topo")
