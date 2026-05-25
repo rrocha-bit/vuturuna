@@ -190,8 +190,8 @@ Z2 = PLATO_Z + LAJE_ESP + PE_DIREITO + LAJE_ESP
 PORTA_LARG  = 0.900
 PORTA_ALT   = 2.100
 
-BANHO_X_EXT = CASA_LARG - PAREDE_EXT_ESP - PAREDE_ESP - 3.380  # X=1,19  (área interna 3,380m)
-BANHO_X0    = BANHO_X_EXT + PAREDE_ESP                         # X=1,33  (face interna)
+BANHO_X_EXT = CASA_LARG - PAREDE_ESP - 2.240 - PAREDE_ESP  # X=2,38
+BANHO_X0    = CASA_LARG - PAREDE_ESP - 2.240               # X=2,52
 BANHO_Y_FIM = Y0 + 4.870 + 2.500                           # Y=12,37
 
 # ── Paredes externas do 2º andar ─────────────────────────────────────────────
@@ -226,10 +226,10 @@ box(PAREDE_EXT_ESP+1.140-PAREDE_ESP, Y0+PAREDE_EXT_ESP+3.750+PAREDE_ESP, Z2,  PA
 # Y1161: X=1,14→2,38, Y=11,60→11,74  (corre em X, começa após X114, até face externa BanhoEsq)
 box(1.140, Y0+PAREDE_EXT_ESP+3.750+2.660, Z2,  BANHO_X_EXT-1.140, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y1161")
 
-# Y987: X=1,19→4,71, Y=10,06→10,20  (área interna = 3,380m, termina na face interna de Dir_A)
-box(BANHO_X_EXT, Y0+PAREDE_EXT_ESP+4.870, Z2,  PAREDE_ESP+3.380, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y987")
+# Y987: X=2,38→4,71, Y=10,06→10,20  (corre em X, termina na face interna da Dir_A)
+box(BANHO_X_EXT, Y0+PAREDE_EXT_ESP+4.870, Z2,  CASA_LARG-PAREDE_EXT_ESP-BANHO_X_EXT, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y987")
 
-# BanhoEsq: X=1,19→1,33, Y=10,20→11,74  (corre em Y, começa após Y987, termina no topo de Y1161)
+# BanhoEsq: X=2,38→2,52, Y=10,20→11,74  (corre em Y, começa após Y987, termina no topo de Y1161)
 # Vão interno = Y987_y1 → Y1161_y1 = 10,20 → 11,74 = 1,54m; porta centralizada
 PORTA_Y = Y0+PAREDE_EXT_ESP+4.870+PAREDE_ESP + (1.540 - PORTA_LARG) / 2
 box(BANHO_X_EXT, Y0+PAREDE_EXT_ESP+4.870+PAREDE_ESP, Z2,  PAREDE_ESP, PORTA_Y-(Y0+PAREDE_EXT_ESP+4.870+PAREDE_ESP), PE_DIREITO, "Banho_Parede_Esq_Bot")
@@ -240,8 +240,8 @@ box(BANHO_X_EXT, PORTA_Y, Z2+PORTA_ALT,  PAREDE_ESP, PORTA_LARG, PE_DIREITO-PORT
 # Continuação de Dir_A após Y987, até BanhoFundo (mesma espessura externa 0,19m)
 box(CASA_LARG-PAREDE_EXT_ESP, Y0+PAREDE_EXT_ESP+4.870+PAREDE_ESP, Z2, PAREDE_EXT_ESP, BANHO_Y_FIM-(Y0+PAREDE_EXT_ESP+4.870+PAREDE_ESP), PE_DIREITO, "2Andar_Banho_Suite_Ext")
 
-# BanhoFundo: X=1,19→4,71, Y=12,37→12,51  (idêntico em X a Y987)
-box(BANHO_X_EXT, BANHO_Y_FIM, Z2,  PAREDE_ESP+3.380, PAREDE_ESP, PE_DIREITO, "Banho_Parede_Fundo")
+# BanhoFundo: X=2,38→4,90, Y=12,37→12,51
+box(BANHO_X_EXT, BANHO_Y_FIM, Z2,  CASA_LARG-BANHO_X_EXT, PAREDE_ESP, PE_DIREITO, "Banho_Parede_Fundo")
 
 # Laje topo 2º andar (cobertura)
 box(0, Y0, Z2+PE_DIREITO, CASA_LARG, SOB_PROF, LAJE_ESP, "Laje_Andar2_Topo")
