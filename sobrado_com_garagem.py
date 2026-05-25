@@ -205,24 +205,25 @@ box(1.280, Y0, Z2+2.100,  0.800, PAREDE_ESP, PE_DIREITO-2.100,     "Andar_2_Pare
 # Parede fundo: X=0→4,90, Y=22,09→22,23
 box(0, Y_FUNDO-PAREDE_ESP, Z2,  CASA_LARG, PAREDE_ESP, PE_DIREITO,  "Andar_2_Parede_Back")
 
-# Parede esquerda — X=0→0,14, Y=5,14→22,09 (toda a extensão do 2º andar)
-box(0, Y0+PAREDE_ESP, Z2,  PAREDE_ESP, SOB_PROF-PAREDE_ESP*2, PE_DIREITO, "Andar_2_Parede_Esq")
+# Parede esquerda suite — X=0→0,14, Y=5,14→8,89 (comprimento=3,75m)
+box(0, Y0+PAREDE_ESP, Z2,  PAREDE_ESP, 3.750, PE_DIREITO, "Andar_2_Parede_Esq_Suite")
 
-# Parede direita A: X=4,76→4,90, Y=5,14→9,67  (após front, até face externa Y987)
-# Y987 face externa = Y0+4,670
+# Parede direita A: X=4,76→4,90, Y=5,14→9,67
 box(CASA_LARG-PAREDE_ESP, Y0+PAREDE_ESP, Z2,  PAREDE_ESP, 4.670-PAREDE_ESP, PE_DIREITO, "Andar_2_Parede_Dir_A")
 
-# Parede direita B: X=4,76→4,90, Y=12,51→22,09  (após BanhoFundo, até back)
+# Parede direita B: X=4,76→4,90, Y=12,51→22,09
 box(CASA_LARG-PAREDE_ESP, BANHO_Y_FIM+PAREDE_ESP, Z2, PAREDE_ESP, SOB_PROF-(4.670+PAREDE_ESP)-(2.500+PAREDE_ESP*2)-PAREDE_ESP, PE_DIREITO, "Andar_2_Parede_Dir_B")
 
 # ── Paredes da suíte ─────────────────────────────────────────────────────────
-# Parede esq da suíte = Andar_2_Parede_Esq_A
 
-# Y875: X=0,14→1,28, Y=8,75→8,89  (comprimento=1,14m)
-box(PAREDE_ESP, Y0+3.750, Z2,  1.140, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y875")
+# Y875: X=0,14→1,28, Y=8,89→9,03  (começa em Y=5140+3750+14mm, length=1140mm)
+box(PAREDE_ESP, Y0+3.750+PAREDE_ESP, Z2,  1.140, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y875")
 
-# X114: movida x=-0,14 e y=-0,14
-box(1.140, Y0+3.610, Z2,  PAREDE_ESP, 2.660+PAREDE_ESP, PE_DIREITO, "Suite_Parede_X114")
+# X114: X=1,14→1,28, Y=8,89→11,73  (começa em Y=5140+3750+14mm, X=1,14m, length=2,84m)
+box(1.140, Y0+3.750+PAREDE_ESP, Z2,  PAREDE_ESP, 2.840, PE_DIREITO, "Suite_Parede_X114")
+
+# Parede esquerda restante — X=0→0,14, Y=8,89→22,09 (após Esq_Suite, até back)
+box(0, Y0+3.750+PAREDE_ESP, Z2,  PAREDE_ESP, SOB_PROF-3.750-PAREDE_ESP*2, PE_DIREITO, "Andar_2_Parede_Esq")
 
 # Y1161: X=1,42→BANHO_X_EXT, Y=11,41→11,55
 box(PAREDE_ESP+1.140+PAREDE_ESP, Y0+6.410, Z2,  BANHO_X_EXT-(PAREDE_ESP+1.140+PAREDE_ESP), PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y1161")
