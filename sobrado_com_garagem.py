@@ -222,8 +222,8 @@ box(CASA_LARG-PAREDE_ESP, BANHO_Y_FIM+PAREDE_ESP, Z2, PAREDE_ESP, SOB_PROF-(4.67
 # ── Paredes da suíte ─────────────────────────────────────────────────────────
 # Parede esq da suíte = Andar_2_Parede_Esq_A
 
-# Y875: X=0→1,14, Y=8,75→8,89  (corre em X, inclui canto esq, para antes de X114)
-box(0, Y0+3.750, Z2,  1.140-PAREDE_ESP, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y875")
+# Y875: X=0,14→1,14, Y=8,75→8,89  (começa após parede esq, para antes de X114)
+box(PAREDE_ESP, Y0+3.750, Z2,  1.140-PAREDE_ESP, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y875")
 
 # X114: X=1,00→1,14, Y=8,89→11,41  (corre em Y, começa após Y875, para antes de Y1161)
 box(1.140-PAREDE_ESP, Y0+3.750+PAREDE_ESP, Z2,  PAREDE_ESP, 2.660-PAREDE_ESP, PE_DIREITO, "Suite_Parede_X114")
