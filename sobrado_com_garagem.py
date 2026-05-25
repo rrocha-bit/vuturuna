@@ -208,8 +208,8 @@ box(0, Y_FUNDO-PAREDE_ESP, Z2,  CASA_LARG, PAREDE_ESP, PE_DIREITO,  "Andar_2_Par
 # Parede esquerda suite — X=0→0,14, Y=5,14→8,89 (comprimento=3,75m)
 box(0, Y0+PAREDE_ESP, Z2,  PAREDE_ESP, 3.750, PE_DIREITO, "Andar_2_Parede_Esq_Suite")
 
-# Parede direita A: X=5,14→5,28, length=4,87m
-box(5.140, Y0+PAREDE_ESP, Z2,  PAREDE_ESP, 4.870, PE_DIREITO, "Andar_2_Parede_Dir_A")
+# Parede direita A: X=4,76→4,90, Y=5,14→10,01, length=4,87m
+box(4.760, 5.140, Z2,  PAREDE_ESP, 4.870, PE_DIREITO, "Andar_2_Parede_Dir_A")
 
 # Parede direita B: X=4,76→4,90, Y=12,51→22,09
 box(CASA_LARG-PAREDE_ESP, BANHO_Y_FIM+PAREDE_ESP, Z2, PAREDE_ESP, SOB_PROF-(4.670+PAREDE_ESP)-(2.500+PAREDE_ESP*2)-PAREDE_ESP, PE_DIREITO, "Andar_2_Parede_Dir_B")
