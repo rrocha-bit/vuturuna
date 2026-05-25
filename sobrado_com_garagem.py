@@ -40,7 +40,8 @@ SOB_PROF    = 17.230   # profundidade do sobrado (Y)
 PLATO_Z     = 3.250    # altura do plato (Z)
 PE_DIREITO  = 2.800    # pé-direito por andar
 LAJE_ESP    = 0.200    # espessura das lajes
-PAREDE_ESP  = 0.140    # espessura das paredes
+PAREDE_INT  = 0.140    # espessura das paredes
+PAREDE_EXT  = 0.190    # espessura das paredes
 MURO_ESP    = 0.150    # espessura dos muros do terreno
 
 TERRENO_ESQ = 31.000   # profundidade lado esquerdo (X=0)
@@ -206,7 +207,7 @@ box(1.280, Y0, Z2+2.100,  0.800, PAREDE_ESP, PE_DIREITO-2.100,     "Andar_2_Pare
 box(0, Y_FUNDO-PAREDE_ESP, Z2,  CASA_LARG, PAREDE_ESP, PE_DIREITO,  "Andar_2_Parede_Back")
 
 # Parede esquerda suite — X=0→0,14, Y=5,14→8,89 (comprimento=3,75m)
-box(0, Y0+PAREDE_ESP, Z2,  PAREDE_ESP, 3.750, PE_DIREITO, "Andar_2_Parede_Esq_Suite")
+box(0, Y0+PAREDE_ESP_EXT, Z2,  PAREDE_ESP_EXT, 3.750, PE_DIREITO, "Andar_2_Parede_Esq_Suite")
 
 # Parede direita A: X=4,76→4,90, Y=5,14→9,67
 box(CASA_LARG-PAREDE_ESP, Y0+PAREDE_ESP, Z2,  PAREDE_ESP, 4.670-PAREDE_ESP, PE_DIREITO, "Andar_2_Parede_Dir_A")
