@@ -208,8 +208,8 @@ box(0, Y0+PAREDE_EXT_ESP, Z2,  PAREDE_EXT_ESP, 3.750, PE_DIREITO, "Andar_2_Pared
 # Parede esquerda B: X=0→0,19, Y=8,94→22,04  (encosta em Esq_A, até back)
 box(0, Y0+PAREDE_EXT_ESP+3.750, Z2,  PAREDE_EXT_ESP, Y_FUNDO-PAREDE_EXT_ESP-(Y0+PAREDE_EXT_ESP+3.750), PE_DIREITO, "Andar_2_Parede_Esq_B")
 
-# Parede direita A: X=4,71→4,90, Y=5,19→9,67  (após front, até face externa Y987)
-box(CASA_LARG-PAREDE_EXT_ESP, Y0+PAREDE_EXT_ESP, Z2,  PAREDE_EXT_ESP, 4.670-PAREDE_EXT_ESP, PE_DIREITO, "Andar_2_Parede_Dir_A")
+# Parede direita A: X=4,71→4,90, Y=5,19→10,06  (espaço interno = 4,870m)
+box(CASA_LARG-PAREDE_EXT_ESP, Y0+PAREDE_EXT_ESP, Z2,  PAREDE_EXT_ESP, 4.870, PE_DIREITO, "Andar_2_Parede_Dir_A")
 
 # Parede direita B: X=4,71→4,90, Y=12,51→22,04  (após BanhoFundo, fecha em Back)
 box(CASA_LARG-PAREDE_EXT_ESP, BANHO_Y_FIM+PAREDE_ESP, Z2, PAREDE_EXT_ESP, Y_FUNDO-PAREDE_EXT_ESP-(BANHO_Y_FIM+PAREDE_ESP), PE_DIREITO, "Andar_2_Parede_Dir_B")
@@ -226,19 +226,19 @@ box(1.140-PAREDE_ESP, Y0+PAREDE_EXT_ESP+3.750+PAREDE_ESP, Z2,  PAREDE_ESP, 2.660
 # Y1161: X=1,14→2,38, Y=11,60→11,74  (corre em X, começa após X114, até face externa BanhoEsq)
 box(1.140, Y0+PAREDE_EXT_ESP+3.750+2.660, Z2,  BANHO_X_EXT-1.140, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y1161")
 
-# Y987: X=2,38→4,71, Y=9,67→9,81  (corre em X, termina na face interna da Dir_A)
-box(BANHO_X_EXT, Y0+4.670, Z2,  CASA_LARG-PAREDE_EXT_ESP-BANHO_X_EXT, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y987")
+# Y987: X=2,38→4,71, Y=10,06→10,20  (corre em X, termina na face interna da Dir_A)
+box(BANHO_X_EXT, Y0+PAREDE_EXT_ESP+4.870, Z2,  CASA_LARG-PAREDE_EXT_ESP-BANHO_X_EXT, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y987")
 
-# BanhoEsq: X=2,38→2,52, Y=9,81→11,55  (corre em Y, começa após Y987, termina no topo de Y1161)
-# Com porta centralizada no vão interno Y=9,87→11,41 (comprimento interno = 1,54m)
-PORTA_Y = Y0 + 4.670 + PAREDE_ESP + (1.540 - PORTA_LARG) / 2  # centralizada no vão interno
-box(BANHO_X_EXT, Y0+4.670+PAREDE_ESP, Z2,  PAREDE_ESP, PORTA_Y-(Y0+4.670+PAREDE_ESP), PE_DIREITO, "Banho_Parede_Esq_Bot")
-box(BANHO_X_EXT, PORTA_Y+PORTA_LARG,  Z2,  PAREDE_ESP, (Y0+6.410+PAREDE_ESP)-(PORTA_Y+PORTA_LARG), PE_DIREITO, "Banho_Parede_Esq_Top")
+# BanhoEsq: X=2,38→2,52, Y=10,20→11,74  (corre em Y, começa após Y987, termina no topo de Y1161)
+# Vão interno = Y987_y1 → Y1161_y1 = 10,20 → 11,74 = 1,54m; porta centralizada
+PORTA_Y = Y0+PAREDE_EXT_ESP+4.870+PAREDE_ESP + (1.540 - PORTA_LARG) / 2
+box(BANHO_X_EXT, Y0+PAREDE_EXT_ESP+4.870+PAREDE_ESP, Z2,  PAREDE_ESP, PORTA_Y-(Y0+PAREDE_EXT_ESP+4.870+PAREDE_ESP), PE_DIREITO, "Banho_Parede_Esq_Bot")
+box(BANHO_X_EXT, PORTA_Y+PORTA_LARG, Z2,  PAREDE_ESP, (Y0+PAREDE_EXT_ESP+3.750+2.660+PAREDE_ESP)-(PORTA_Y+PORTA_LARG), PE_DIREITO, "Banho_Parede_Esq_Top")
 box(BANHO_X_EXT, PORTA_Y, Z2+PORTA_ALT,  PAREDE_ESP, PORTA_LARG, PE_DIREITO-PORTA_ALT, "Banho_Parede_Esq_Verga")
 
-# 2Andar_Banho_Suite_Ext: X=4,71→4,90, Y=9,81→12,37
+# 2Andar_Banho_Suite_Ext: X=4,71→4,90, Y=10,20→12,37
 # Continuação de Dir_A após Y987, até BanhoFundo (mesma espessura externa 0,19m)
-box(CASA_LARG-PAREDE_EXT_ESP, Y0+4.670+PAREDE_ESP, Z2, PAREDE_EXT_ESP, BANHO_Y_FIM-(Y0+4.670+PAREDE_ESP), PE_DIREITO, "2Andar_Banho_Suite_Ext")
+box(CASA_LARG-PAREDE_EXT_ESP, Y0+PAREDE_EXT_ESP+4.870+PAREDE_ESP, Z2, PAREDE_EXT_ESP, BANHO_Y_FIM-(Y0+PAREDE_EXT_ESP+4.870+PAREDE_ESP), PE_DIREITO, "2Andar_Banho_Suite_Ext")
 
 # BanhoFundo: X=2,38→4,90, Y=12,37→12,51
 box(BANHO_X_EXT, BANHO_Y_FIM, Z2,  CASA_LARG-BANHO_X_EXT, PAREDE_ESP, PE_DIREITO, "Banho_Parede_Fundo")
