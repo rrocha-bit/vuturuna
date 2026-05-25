@@ -210,7 +210,7 @@ box(0, Y0+PAREDE_ESP, Z2,  PAREDE_ESP, SOB_PROF-PAREDE_ESP*2, PE_DIREITO, "Andar
 
 # Parede direita A: X=4,76→4,90, Y=5,14→9,67  (após front, até face externa Y987)
 # Y987 face externa = Y0+4,670
-box(CASA_LARG-PAREDE_ESP, Y0+PAREDE_ESP, Z2,  PAREDE_ESP, 4.670-PAREDE_ESP, PE_DIREITO, "Andar_2_Parede_Dir_A")
+box(CASA_LARG-PAREDE_ESP, Y0+PAREDE_ESP, Z2,  PAREDE_ESP, 5.100-PAREDE_ESP, PE_DIREITO, "Andar_2_Parede_Dir_A")
 
 # Parede direita B: X=4,76→4,90, Y=12,51→22,09  (após BanhoFundo, até back)
 box(CASA_LARG-PAREDE_ESP, BANHO_Y_FIM+PAREDE_ESP, Z2, PAREDE_ESP, SOB_PROF-(4.670+PAREDE_ESP)-(2.500+PAREDE_ESP*2)-PAREDE_ESP, PE_DIREITO, "Andar_2_Parede_Dir_B")
