@@ -250,7 +250,14 @@ doc.recompute()
 
 try:
     import FreeCADGui as Gui
-    Gui.activeDocument().activeView().viewIsometric()
+
+    # Ocultar todas as lajes
+    for obj in doc.Objects:
+        if "Laje" in obj.Name or "Terreno" in obj.Name or "Aterro" in obj.Name:
+            obj.Visibility = False
+
+    # Vista de cima centrada
+    Gui.activeDocument().activeView().viewTop()
     Gui.SendMsgToActiveView("ViewFit")
 except Exception:
     pass
