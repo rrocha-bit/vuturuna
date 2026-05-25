@@ -219,8 +219,8 @@ box(CASA_LARG-PAREDE_ESP, BANHO_Y_FIM+PAREDE_ESP, Z2, PAREDE_ESP, SOB_PROF-(4.67
 # Y875: X=0,14→1,28, Y=8,89→9,03  (começa em Y=5140+3750+14mm, length=1140mm)
 box(PAREDE_ESP, Y0+3.750+PAREDE_ESP, Z2,  1.140, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y875")
 
-# X114: X=1,14→1,28, Y=3,778→6,618
-box(1.140, 3.778, Z2,  PAREDE_ESP, 2.840, PE_DIREITO, "Suite_Parede_X114")
+# X114: X=1,14→1,28, Y=8,792→11,632
+box(1.140, 8.792, Z2,  PAREDE_ESP, 2.840, PE_DIREITO, "Suite_Parede_X114")
 
 # Parede esquerda restante — X=0→0,14, Y=8,89→22,09 (após Esq_Suite, até back)
 box(0, Y0+3.750+PAREDE_ESP, Z2,  PAREDE_ESP, SOB_PROF-3.750-PAREDE_ESP*2, PE_DIREITO, "Andar_2_Parede_Esq")
