@@ -205,12 +205,8 @@ box(1.280, Y0, Z2+2.100,  0.800, PAREDE_ESP, PE_DIREITO-2.100,     "Andar_2_Pare
 # Parede fundo: X=0→4,90, Y=22,09→22,23
 box(0, Y_FUNDO-PAREDE_ESP, Z2,  CASA_LARG, PAREDE_ESP, PE_DIREITO,  "Andar_2_Parede_Back")
 
-# Parede esquerda A: X=0→0,14, Y=5,14→8,75  (após front, até Y875)
-box(0, Y0+PAREDE_ESP, Z2,  PAREDE_ESP, 3.750-PAREDE_ESP, PE_DIREITO, "Andar_2_Parede_Esq_A")
-
-# Parede esquerda B: X=0→0,14, Y=11,55→22,09  (após Y1161, até back)
-# Y1161 termina em Y0+6.410+P = 11,41+0,14 = 11,55
-box(0, Y0+6.410+PAREDE_ESP, Z2,  PAREDE_ESP, SOB_PROF-(6.410+PAREDE_ESP)-PAREDE_ESP, PE_DIREITO, "Andar_2_Parede_Esq_B")
+# Parede esquerda — X=0→0,14, Y=5,14→22,09 (toda a extensão do 2º andar)
+box(0, Y0+PAREDE_ESP, Z2,  PAREDE_ESP, SOB_PROF-PAREDE_ESP*2, PE_DIREITO, "Andar_2_Parede_Esq")
 
 # Parede direita A: X=4,76→4,90, Y=5,14→9,67  (após front, até face externa Y987)
 # Y987 face externa = Y0+4,670
