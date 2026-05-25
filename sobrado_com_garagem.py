@@ -1,6 +1,6 @@
 """
 FreeCAD Script - Sobrado com Garagem + Terreno completo
-# TESTE AUTO-PUSH — atualizado automaticamente via Claude + GitHub
+# TESTE 2 — segunda alteração de validação do pipeline
 ========================================================
 Terreno trapezoidal:
   Frente (rua):       6.40 m  (eixo X)
