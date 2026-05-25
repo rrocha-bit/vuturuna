@@ -210,8 +210,8 @@ box(0, Y_FUNDO-PAREDE_EXT_ESP, Z2,  CASA_LARG, PAREDE_EXT_ESP, PE_DIREITO,  "And
 # Parede esquerda A: X=0→0,19, Y=5,19→8,75  (após front, até Y875)
 box(0, Y0+PAREDE_EXT_ESP, Z2,  PAREDE_EXT_ESP, 3.750-PAREDE_EXT_ESP, PE_DIREITO, "Andar_2_Parede_Esq_A")
 
-# Parede esquerda B: X=0→0,19, Y=11,55→22,09  (após Y1161, até back)
-box(0, Y0+6.410+PAREDE_ESP, Z2,  PAREDE_EXT_ESP, SOB_PROF-(6.410+PAREDE_ESP)-PAREDE_EXT_ESP, PE_DIREITO, "Andar_2_Parede_Esq_B")
+# Parede esquerda B: X=0→0,19, Y=8,75→22,04  (encosta em Esq_A, até back)
+box(0, Y0+3.750, Z2,  PAREDE_EXT_ESP, Y_FUNDO-PAREDE_EXT_ESP-(Y0+3.750), PE_DIREITO, "Andar_2_Parede_Esq_B")
 
 # Parede direita A: X=4,71→4,90, Y=5,19→9,67  (após front, até face externa Y987)
 box(CASA_LARG-PAREDE_EXT_ESP, Y0+PAREDE_EXT_ESP, Z2,  PAREDE_EXT_ESP, 4.670-PAREDE_EXT_ESP, PE_DIREITO, "Andar_2_Parede_Dir_A")
