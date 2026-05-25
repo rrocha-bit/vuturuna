@@ -40,7 +40,8 @@ SOB_PROF    = 17.230   # profundidade do sobrado (Y)
 PLATO_Z     = 3.250    # altura do plato (Z)
 PE_DIREITO  = 2.800    # pé-direito por andar
 LAJE_ESP    = 0.200    # espessura das lajes
-PAREDE_ESP  = 0.140    # espessura das paredes
+PAREDE_ESP  = 0.140    # espessura das paredes internas
+PAREDE_EXT_ESP = 0.190 # espessura das paredes externas da casa
 MURO_ESP    = 0.150    # espessura dos muros do terreno
 
 TERRENO_ESQ = 31.000   # profundidade lado esquerdo (X=0)
@@ -123,7 +124,7 @@ box(CASA_LARG, GAR_PROF, PLATO_Z,
 # 4. GARAGEM — X: 0→CASA_LARG (4.90m), Y: 0→GAR_PROF (5m)
 # ══════════════════════════════════════════════════════════════════════════════
 box(0, 0, 0, CASA_LARG, GAR_PROF, 0.15, "Garagem_Piso")
-box(0, 0, 0.15, PAREDE_ESP, GAR_PROF, GAR_PE, "Garagem_Parede_Esq")
+box(0, 0, 0.15, PAREDE_EXT_ESP, GAR_PROF, GAR_PE, "Garagem_Parede_Esq")
 
 
 
@@ -152,13 +153,13 @@ box(0, Y0, PLATO_Z, CASA_LARG, SOB_PROF, LAJE_ESP, "Sobrado_Laje_Piso")
 Z1 = PLATO_Z + LAJE_ESP
 
 # Parede frontal (Y=5m) — largura toda
-box(0, Y0,                    Z1, CASA_LARG,  PAREDE_ESP, PE_DIREITO, "Andar_1_Parede_Front")
+box(0, Y0,                    Z1, CASA_LARG,  PAREDE_EXT_ESP, PE_DIREITO, "Andar_1_Parede_Front")
 
 # Parede esquerda (X=0) — toda a profundidade do sobrado
-box(0, Y0,                    Z1, PAREDE_ESP, SOB_PROF,   PE_DIREITO, "Andar_1_Parede_Esq")
+box(0, Y0,                    Z1, PAREDE_EXT_ESP, SOB_PROF,   PE_DIREITO, "Andar_1_Parede_Esq")
 
 # Parede direita (X=4,90) — só até a divisória (cozinha), gourmet aberta
-box(CASA_LARG-PAREDE_ESP, Y0, Z1, PAREDE_ESP, SOB_PROF-GOURMET_P, PE_DIREITO, "Andar_1_Parede_Dir")
+box(CASA_LARG-PAREDE_EXT_ESP, Y0, Z1, PAREDE_EXT_ESP, SOB_PROF-GOURMET_P, PE_DIREITO, "Andar_1_Parede_Dir")
 
 # Parede divisória cozinha/gourmet (Y=18,23m) — largura toda
 box(0, Y_DIV-PAREDE_ESP,      Z1, CASA_LARG,  PAREDE_ESP, PE_DIREITO, "Andar_1_Parede_Div")
@@ -182,6 +183,7 @@ box(0, Y0, Z1+PE_DIREITO, CASA_LARG, SOB_PROF, LAJE_ESP, "Laje_Andar1_Topo")
 #   BANHO_X_EXT = 2,26  (face externa Banho_Parede_Esq)
 #   BANHO_X0    = 2,46  (face interna Banho_Parede_Esq)
 #   BANHO_Y_FIM = 12,37 (fundo banheiro)
+#   Paredes externas: 0,19m | Paredes internas: 0,14m
 
 Z2 = PLATO_Z + LAJE_ESP + PE_DIREITO + LAJE_ESP
 
@@ -196,34 +198,32 @@ BANHO_Y_FIM = Y0 + 4.870 + 2.500                           # Y=12,37
 
 # Parede frontal com porta de entrada da suíte (0,80x2,10) em X=1,28→2,08
 # Trecho esquerdo: X=0→1,28
-box(0,    Y0, Z2,  1.280,                  PAREDE_ESP, PE_DIREITO,  "Andar_2_Parede_Front_Esq")
+box(0,    Y0, Z2,  1.280,                  PAREDE_EXT_ESP, PE_DIREITO,  "Andar_2_Parede_Front_Esq")
 # Trecho direito: X=2,08→4,90
-box(2.080, Y0, Z2,  CASA_LARG-2.080,       PAREDE_ESP, PE_DIREITO,  "Andar_2_Parede_Front_Dir")
+box(2.080, Y0, Z2,  CASA_LARG-2.080,       PAREDE_EXT_ESP, PE_DIREITO,  "Andar_2_Parede_Front_Dir")
 # Verga acima da porta: X=1,28→2,08, Z=porta até teto
-box(1.280, Y0, Z2+2.100,  0.800, PAREDE_ESP, PE_DIREITO-2.100,     "Andar_2_Parede_Front_Verga")
+box(1.280, Y0, Z2+2.100,  0.800, PAREDE_EXT_ESP, PE_DIREITO-2.100,     "Andar_2_Parede_Front_Verga")
 
 # Parede fundo: X=0→4,90, Y=22,09→22,23
-box(0, Y_FUNDO-PAREDE_ESP, Z2,  CASA_LARG, PAREDE_ESP, PE_DIREITO,  "Andar_2_Parede_Back")
+box(0, Y_FUNDO-PAREDE_EXT_ESP, Z2,  CASA_LARG, PAREDE_EXT_ESP, PE_DIREITO,  "Andar_2_Parede_Back")
 
-# Parede esquerda A: X=0→0,14, Y=5,14→8,75  (após front, até Y875)
-box(0, Y0+PAREDE_ESP, Z2,  PAREDE_ESP, 3.750-PAREDE_ESP, PE_DIREITO, "Andar_2_Parede_Esq_A")
+# Parede esquerda A: X=0→0,19, Y=5,19→8,75  (após front, até Y875)
+box(0, Y0+PAREDE_EXT_ESP, Z2,  PAREDE_EXT_ESP, 3.750-PAREDE_EXT_ESP, PE_DIREITO, "Andar_2_Parede_Esq_A")
 
-# Parede esquerda B: X=0→0,14, Y=11,55→22,09  (após Y1161, até back)
-# Y1161 termina em Y0+6.410+P = 11,41+0,14 = 11,55
-box(0, Y0+6.410+PAREDE_ESP, Z2,  PAREDE_ESP, SOB_PROF-(6.410+PAREDE_ESP)-PAREDE_ESP, PE_DIREITO, "Andar_2_Parede_Esq_B")
+# Parede esquerda B: X=0→0,19, Y=11,55→22,09  (após Y1161, até back)
+box(0, Y0+6.410+PAREDE_ESP, Z2,  PAREDE_EXT_ESP, SOB_PROF-(6.410+PAREDE_ESP)-PAREDE_EXT_ESP, PE_DIREITO, "Andar_2_Parede_Esq_B")
 
-# Parede direita A: X=4,76→4,90, Y=5,14→9,67  (após front, até face externa Y987)
-# Y987 face externa = Y0+4,670
-box(CASA_LARG-PAREDE_ESP, Y0+PAREDE_ESP, Z2,  PAREDE_ESP, 4.670-PAREDE_ESP, PE_DIREITO, "Andar_2_Parede_Dir_A")
+# Parede direita A: X=4,71→4,90, Y=5,19→9,67  (após front, até face externa Y987)
+box(CASA_LARG-PAREDE_EXT_ESP, Y0+PAREDE_EXT_ESP, Z2,  PAREDE_EXT_ESP, 4.670-PAREDE_EXT_ESP, PE_DIREITO, "Andar_2_Parede_Dir_A")
 
-# Parede direita B: X=4,76→4,90, Y=12,51→22,09  (após BanhoFundo, até back)
-box(CASA_LARG-PAREDE_ESP, BANHO_Y_FIM+PAREDE_ESP, Z2, PAREDE_ESP, SOB_PROF-(4.670+PAREDE_ESP)-(2.500+PAREDE_ESP*2)-PAREDE_ESP, PE_DIREITO, "Andar_2_Parede_Dir_B")
+# Parede direita B: X=4,71→4,90, Y=12,51→22,04  (após BanhoFundo, fecha em Back)
+box(CASA_LARG-PAREDE_EXT_ESP, BANHO_Y_FIM+PAREDE_ESP, Z2, PAREDE_EXT_ESP, Y_FUNDO-PAREDE_EXT_ESP-(BANHO_Y_FIM+PAREDE_ESP), PE_DIREITO, "Andar_2_Parede_Dir_B")
 
 # ── Paredes da suíte ─────────────────────────────────────────────────────────
 # Parede esq da suíte = Andar_2_Parede_Esq_A
 
-# Y875: X=0,14→1,14, Y=8,75→8,89  (começa após parede esq, para antes de X114)
-box(PAREDE_ESP, Y0+3.750, Z2,  1.140-PAREDE_ESP, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y875")
+# Y875: X=0,19→1,14, Y=8,75→8,89  (começa na face interna da Esq_A = PAREDE_EXT_ESP)
+box(PAREDE_EXT_ESP, Y0+3.750, Z2,  1.140-PAREDE_EXT_ESP, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y875")
 
 # X114: X=1,00→1,14, Y=8,89→11,41  (corre em Y, começa após Y875, para antes de Y1161)
 box(1.140-PAREDE_ESP, Y0+3.750+PAREDE_ESP, Z2,  PAREDE_ESP, 2.660-PAREDE_ESP, PE_DIREITO, "Suite_Parede_X114")
@@ -231,14 +231,14 @@ box(1.140-PAREDE_ESP, Y0+3.750+PAREDE_ESP, Z2,  PAREDE_ESP, 2.660-PAREDE_ESP, PE
 # Y1161: X=1,14→2,38, Y=11,41→11,55  (corre em X, começa após X114, até face externa BanhoEsq)
 box(1.140, Y0+6.410, Z2,  BANHO_X_EXT-1.140, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y1161")
 
-# Y987: X=2,38→4,90, Y=9,67→9,81  (corre em X, inclui canto dir)
-box(BANHO_X_EXT, Y0+4.670, Z2,  CASA_LARG-BANHO_X_EXT, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y987")
+# Y987: X=2,38→4,71, Y=9,67→9,81  (corre em X, termina na face interna da Dir_A)
+box(BANHO_X_EXT, Y0+4.670, Z2,  CASA_LARG-PAREDE_EXT_ESP-BANHO_X_EXT, PAREDE_ESP, PE_DIREITO, "Suite_Parede_Y987")
 
-# BanhoEsq: X=2,38→2,52, Y=9,81→11,55  (corre em Y, começa após Y987, termina em Y1161)
+# BanhoEsq: X=2,38→2,52, Y=9,81→11,55  (corre em Y, começa após Y987, termina no topo de Y1161)
 # Com porta centralizada no vão interno Y=9,87→11,41 (comprimento interno = 1,54m)
 PORTA_Y = Y0 + 4.670 + PAREDE_ESP + (1.540 - PORTA_LARG) / 2  # centralizada no vão interno
 box(BANHO_X_EXT, Y0+4.670+PAREDE_ESP, Z2,  PAREDE_ESP, PORTA_Y-(Y0+4.670+PAREDE_ESP), PE_DIREITO, "Banho_Parede_Esq_Bot")
-box(BANHO_X_EXT, PORTA_Y+PORTA_LARG,  Z2,  PAREDE_ESP, (Y0+6.410)-(PORTA_Y+PORTA_LARG), PE_DIREITO, "Banho_Parede_Esq_Top")
+box(BANHO_X_EXT, PORTA_Y+PORTA_LARG,  Z2,  PAREDE_ESP, (Y0+6.410+PAREDE_ESP)-(PORTA_Y+PORTA_LARG), PE_DIREITO, "Banho_Parede_Esq_Top")
 box(BANHO_X_EXT, PORTA_Y, Z2+PORTA_ALT,  PAREDE_ESP, PORTA_LARG, PE_DIREITO-PORTA_ALT, "Banho_Parede_Esq_Verga")
 
 # BanhoFundo: X=2,38→4,90, Y=12,37→12,51
