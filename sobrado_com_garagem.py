@@ -244,16 +244,20 @@ box(CASA_LARG-PAREDE_EXT_ESP, Y0+PAREDE_EXT_ESP+4.870+PAREDE_ESP, Z2, PAREDE_EXT
 box(4.900-0.1900, BANHO_Y_FIM, Z2,  2.380, PAREDE_ESP, PE_DIREITO, "Banho_Parede_Fundo")
 
 #Banheiro Social
-box(4.900-0.1900-2.380, 1.270, Z2,  2.380, PAREDE_ESP, PE_DIREITO, 'wc_social_parede_paralela')
+box(4.900-0.1900-2.380, 1.270, Z2,  2.380, PAREDE_ESP, PE_DIREITO, "wc_social_parede_paralela")
 
 #Escritorio
-box(4.900-0.1900-2.380, 1.446, Z2,  2.380, PAREDE_ESP, PE_DIREITO, 'escritorio_parede_paralela)
+box(4.900-0.1900-2.380, 1.446, Z2,  2.380, PAREDE_ESP, PE_DIREITO, "escritorio_parede_paralela")
 
 #Quarto1
-box(4.900-0.1900-2.380, 1.711, Z2,  2.380, PAREDE_ESP, PE_DIREITO, 'Quarto1_parede_paralela')
+box(4.900-0.1900-2.380, 1.711, Z2,  2.380, PAREDE_ESP, PE_DIREITO, "Quarto1_parede_paralela")
 
 # Laje topo 2º andar (cobertura)
 box(0, Y0, Z2+PE_DIREITO, CASA_LARG, SOB_PROF, LAJE_ESP, "Laje_Andar2_Topo")
+
+
+#box(x0, y0, z0,  dx, dy, dz,  name)
+#box(onde comeca no x, onde comeca no y, andar,largura, profundidade, altura)
 
 # ══════════════════════════════════════════════════════════════════════════════
 # 7. Finalizar
