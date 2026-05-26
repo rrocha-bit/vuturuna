@@ -241,16 +241,19 @@ box(BANHO_X_EXT, PORTA_Y, Z2+PORTA_ALT,  PAREDE_ESP, PORTA_LARG, PE_DIREITO-PORT
 box(CASA_LARG-PAREDE_EXT_ESP, Y0+PAREDE_EXT_ESP+4.870+PAREDE_ESP, Z2, PAREDE_EXT_ESP, BANHO_Y_FIM-(Y0+PAREDE_EXT_ESP+4.870+PAREDE_ESP), PE_DIREITO, "2Andar_Banho_Suite_Ext")
 
 # BanhoFundo: X=2,38→4,90, Y=12,37→12,51
-box(4.900-0.1900, BANHO_Y_FIM, Z2,  2.380, PAREDE_ESP, PE_DIREITO, "Banho_Parede_Fundo")
+box(BANHO_X_EXT, BANHO_Y_FIM, Z2,  2.380, PAREDE_ESP, PE_DIREITO, "Banho_Parede_Fundo")
 
 #Banheiro Social
-box(4.900-0.1900-2.380, 1.270, Z2,  2.380, PAREDE_ESP, PE_DIREITO, "wc_social_parede_paralela")
+box(4.900-0.1900-2.380, 12.700, Z2,  2.380, PAREDE_ESP, PE_DIREITO, "wc_social_parede_paralela")
 
 #Escritorio
-box(4.900-0.1900-2.380, 1.446, Z2,  2.380, PAREDE_ESP, PE_DIREITO, "escritorio_parede_paralela")
+box(4.900-0.1900-2.380, 14.460, Z2,  2.380, PAREDE_ESP, PE_DIREITO, "escritorio_parede_paralela")
 
 #Quarto1
-box(4.900-0.1900-2.380, 1.711, Z2,  2.380, PAREDE_ESP, PE_DIREITO, "Quarto1_parede_paralela")
+box(4.900-0.1900-2.380, 17.110, Z2,  2.380, PAREDE_ESP, PE_DIREITO, "Quarto1_parede_paralela")
+
+#Quarto2
+box(4.900-0.1900-2.380, 20.260, Z2,  3.390, PAREDE_ESP, PE_DIREITO, "Quarto2_parede_paralela")
 
 # Laje topo 2º andar (cobertura)
 box(0, Y0, Z2+PE_DIREITO, CASA_LARG, SOB_PROF, LAJE_ESP, "Laje_Andar2_Topo")
